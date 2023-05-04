@@ -1,0 +1,13 @@
+version: '3'
+services:
+  numerai_notebook:
+    image: almond_demo/notebook:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/home/jovyan/work/src
+    ports:
+      - "8888:8888"
+    environment:
+      - JAVA_OPTS="-J-Xmx20192m"
